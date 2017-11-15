@@ -1,0 +1,29 @@
+
+
+    <div class="container">
+        <div class="row row-content">
+            <div class="col-xs-12">
+                <button class="btn btn-xs btn-primary pull-right"
+                        type="button" ui-sref="app.menu">
+                    Back to Menu
+                </button>
+                <div class="media">
+            <div class="col-xs-9 col-xs-offset-1">
+                <p>Put the comments here</p>
+                <p>You should have completed this in Assignment 1</p>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+                    <ul class="list-unstyled">
+						<p>Task 3: Here you include the code to show the live preview of the comment</p>
+						<p>The comment should be shown only when the form contains valid
+						information and is not pristine</p>
+                    </ul>
+                <form class="form-horizontal" name="commentForm"
+                		ng-submit="submitComment()" novalidate>
+					<p>Task 1: Design the form to submit the comments</p>
+					<p>Task 2: You need to validate that the user name and comments are entered</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
