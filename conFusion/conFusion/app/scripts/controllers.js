@@ -7,7 +7,21 @@ angular.module('confusionApp', [])
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;
-    $scope.dishes= menuFactory.getDishes();
+        $scope.showMenu = false;
+        $scope.message = "Loading ...";
+        $scope.dish = {};
+        $scope.showDish = false;
+        $scope.message="Loading ...";
+        menuFactory.getDish(parseInt($stateParams.id,10))
+            .then(
+                function(response){
+                    $scope.dish = response.data;
+                    $scope.showDish=true;
+                },
+                function(response) {
+                    $scope.message = "Error: "+response.status + " " + response.statusText;
+                }
+            );
 
 
     $scope.select = function(setTab) {
@@ -34,7 +48,8 @@ angular.module('confusionApp', [])
     $scope.toggleDetails = function() {
         $scope.showDetails = !$scope.showDetails;
     }
-      /*  .controller('ContactController', ['$scope', function($scope) {
+    }])
+        .controller('ContactController', ['$scope', function($scope) {
             $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
             var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
             $scope.channels = channels;
@@ -57,6 +72,52 @@ angular.module('confusionApp', [])
                     console.log($scope.feedback);
                 }
             };
-        }]);
-    ;*/
-}]);
+        }])
+    .controller('DishDetailController',['$scope','$stateParams','menuFactory',function($scope,$stateParams,menuFactory){
+        var dish=menuFactory.getDish(parseInt($stateParams.id,10));
+        $scope.dish = {};
+
+        menuFactory.getDish(0)
+            .then(
+                function(response){
+                    $scope.dish = response.data;
+                    $scope.showDish = true;
+                }
+            );
+    }])
+    .controller('DishCommentController',['$scope',function($scope){
+
+        $scope.mycomment={ratings:5,comment:"",data:""};
+
+       $scope.submitComment=function () {
+
+       }
+    }])
+    .controller('IndexController',['$scope','menuFactory','corporateFactory',function($scope,menuFactory,corporateFactory){
+
+        $scope.leader=corporateFactory.getLeader(3);
+        $scope.dish = {};
+        $scope.showDish = false;
+        $scope.message="Loading ...";
+
+        menuFactory.getDish(0)
+            .then(
+                function(response){
+                    $scope.dish = response.data;
+                    $scope.showDish = true;
+                },
+                function(response) {
+                    $scope.message = "Error: "+response.status + " " + response.statusText;
+                }
+            );
+        $scope.promotion=menuFactory.getPomotion(0);
+    }])
+    .controller('AboutController',['$scope',function($scope){
+
+        $scope.mycomment={ratings:5,comment:"",data:""};
+
+        $scope.submitComment=function () {
+
+        }
+    }]);
+
