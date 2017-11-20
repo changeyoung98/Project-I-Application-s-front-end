@@ -15,4 +15,11 @@
 ##
 ## The main functions of my work
 ### Open the  **index.html** you will see the webpage.
-### It's a webpage about a restaurant. You can see the menu (controlled by **menu.html**), click the bottons **Appetizers,Mains,Desserts** to see different kinds of meals. Click the **show details/hide details** button to 
+### It's a webpage about a restaurant. You can see the menu (controlled by **menu.html**), click the bottons **Appetizers,Mains,Desserts** to see different kinds of dishes. Click the **show details/hide details** button to see or hide the details of the dishes.
+### Downside is the contact us part (controlled by **contactus.html**). There you can see the contact information and sent feedbacks to the restaurant. When you type in you information, there will be **a display of your current feedback on the right**. When you finish your feedback correctly (if there is any format error, you can see some hints to help you finish), the **send feedback** button will be enabled. 
+
+##
+### And I also followed the course building the server and unit test.
+----
+### Thank you for reading.
+### 陈志扬
