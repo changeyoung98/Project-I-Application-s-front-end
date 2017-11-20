@@ -1,6 +1,6 @@
 
 
-    <div class="container" ng-controller=" ContactController">
+    <div class="container" ng-controller="ContactController">
         <div class="row">
             <div class="col-xs-12">
                <ul class="breadcrumb">
@@ -114,11 +114,10 @@
                                       ng-model="feedback.comments">
                             </textarea>
                         </div>
-
+                    </div>
+                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Send
-                                Feedback
-                            </button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Send Feedback</button>
                         </div>
                     </div>
                 </form>
