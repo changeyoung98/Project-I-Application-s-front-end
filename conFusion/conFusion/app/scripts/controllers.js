@@ -44,16 +44,16 @@ angular.module('confusionApp', [])
         $scope.showDetails = !$scope.showDetails;
     }
     }])
-        .controller('ContactController', ['$scope', function($scope) {
-            $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
-            var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
-            $scope.channels = channels;
+       .controller('ContactController', ['$scope', function($scope) {
+            $scope.feedback = {mychannel:"", firstName:"", lastName:"",tel:"", agree:false, email:"" };
+            var channel= [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
+            $scope.channels = channel;
             $scope.invalidChannelSelection = false;
         }])
         .controller('FeedbackController', ['$scope', function($scope) {
             $scope.sendFeedback = function() {
                 console.log($scope.feedback);
-                if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel) {
+                if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel) {
                     $scope.invalidChannelSelection = true;
                     console.log('incorrect');
                 }
@@ -68,8 +68,8 @@ angular.module('confusionApp', [])
                 }
             };
         }])
-    .controller('DishDetailController',['$scope','$stateParams','menuFactory', function($scope,$stateParams,menuFactory){
-        var dish=menuFactory.getDish(parseInt($stateParams.id,10));
+   .controller('DishDetailController',['$scope','$routeParams','menuFactory', function($scope,$routeParams,menuFactory){
+        var dish=menuFactory.getDish(parseInt($routeParams.id,10));
         $scope.dish = {};
         $scope.showDish = false;
         $scope.message="Loading ...";
@@ -84,7 +84,7 @@ angular.module('confusionApp', [])
                 }
             );
     }])
-    .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
+            .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
 
         $scope.mycomment={ratings:5,comment:"",data:""};
 
@@ -121,5 +121,5 @@ angular.module('confusionApp', [])
         console.log($scope.leaders);
 
 
-    }])
+    }]);
 
