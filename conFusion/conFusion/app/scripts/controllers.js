@@ -2,8 +2,28 @@
  * Created by hp on 2017/11/14.
  */
 'use strict';
+angular.module('confusionApp', ['ngRoute'])
+    .config(function($routeProvider) {
+        $routeProvider
+        // route for the contactus page
+            .when('/Home', {
+                templateUrl : 'dishdetail.html',
+                controller  : 'ContactController'
+            })
+            // route for the menu page
+            .when('/menu', {
+                templateUrl : 'menu.html',
+                controller  : 'MenuController'
+            })
+            // route for the dish details page
+            .when('/menu/:id', {
+                templateUrl : 'dishdetail.html',
+                controller  : 'DishDetailController'
+            })
+            .otherwise('/menu');
+    });
 angular.module('confusionApp', [])
-    .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+    .controller('MenuController', ['$scope', 'menuFactory', function($scope,menuFactory) {
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;

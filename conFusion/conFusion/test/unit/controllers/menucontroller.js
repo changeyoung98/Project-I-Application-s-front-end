@@ -10,41 +10,41 @@ describe('Controller: MenuController', function () {
 
 
 // Initialize the controller and a mock scope
- beforeEach(inject(function ($controller, _$httpBackend_,  $rootScope, menuFactory) {
+    beforeEach(inject(function ($controller, _$httpBackend_,  $rootScope, menuFactory) {
 
-    // place here mocked dependencies
-    $httpBackend = _$httpBackend_;
+        // place here mocked dependencies
+        $httpBackend = _$httpBackend_;
 
-    $httpBackend.expectGET("http://localhost:3000/dishes").respond([
-        {
-            "id": 0,
-            "name": "Uthapizza",
-            "image": "images/uthapizza.png",
-            "category": "mains",
-            "label": "Hot",
-            "price": "4.99",
-            "description": "A",
-            "comments":[{}]
-        },
-        {
-            "id": 1,
-            "name": "Zucchipakoda",
-            "image": "images/zucchipakoda.png",
-            "category": "mains",
-            "label": "New",
-            "price": "4.99",
-            "description": "A",
-            "comments":[{}]
-        }
-    ]);
+        $httpBackend.expectGET("http://localhost:3000/dishes").respond([
+            {
+                "id": 0,
+                "name": "Uthapizza",
+                "image": "images/uthapizza.png",
+                "category": "mains",
+                "label": "Hot",
+                "price": "4.99",
+                "description": "A",
+                "comments":[{}]
+            },
+            {
+                "id": 1,
+                "name": "Zucchipakoda",
+                "image": "images/zucchipakoda.png",
+                "category": "mains",
+                "label": "New",
+                "price": "4.99",
+                "description": "A",
+                "comments":[{}]
+            }
+        ]);
 
-    scope = $rootScope.$new();
-    MenuController = $controller('MenuController', {
-        $scope: scope, menuFactory: menuFactory
-    });
-    $httpBackend.flush();
+        scope = $rootScope.$new();
+        MenuController = $controller('MenuController', {
+            $scope: scope, menuFactory: menuFactory
+        });
+        $httpBackend.flush();
 
-}));
+    }));
     it('should have showDetails as false', function () {
 
         expect(scope.showDetails).toBeFalsy();
@@ -62,7 +62,7 @@ describe('Controller: MenuController', function () {
     it('should have the correct data order in the dishes', function() {
 
         expect(scope.dishes[0].name).toBe("Uthapizza");
-        expect(scope.dishes[1].label).toBe("New");
+        expect(scope.dishes[1].name).toBe("Zucchipakoda");
 
     });
 

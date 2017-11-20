@@ -17,10 +17,16 @@
     "gulp-rev": "^8.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-usemin": "^0.3.28",
+    "jasmine-core": "^2.8.0",
     "jshint": "^2.9.5",
-    "jshint-stylish": "^2.2.1"
+    "jshint-stylish": "^2.2.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.6"
   }
 }
